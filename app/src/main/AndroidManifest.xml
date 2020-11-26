@@ -9,14 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UIElements2">
-        <activity android:name=".tgsmAlbum"></activity>
-        <activity android:name=".tcAlbum" />
-        <activity android:name=".loverAlbum" />
-        <activity android:name=".bpAlbum" />
-        <activity android:name=".QueueAct" />
+        <activity android:name=".AlbumDetails"></activity>
         <activity android:name=".QueueActivity" />
         <activity android:name=".AlbumsActivity" />
-        <activity android:name=".SongsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
