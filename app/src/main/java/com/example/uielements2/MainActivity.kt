@@ -1,18 +1,17 @@
 package com.example.uielements2
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ContextMenu
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.go_to_queues -> {
                 val intent = Intent(this, QueueActivity::class.java)
-                //intent.putStringArrayListExtra("queuedSongs", queuedSongs)
                 startActivity(intent)
                 true
             }
@@ -65,10 +63,15 @@ class MainActivity : AppCompatActivity() {
 
         return when (item.itemId){
             R.id.addSongToQueue -> {
-                Toast.makeText(this, "Added To Queue", Toast.LENGTH_SHORT).show()
+                val songsList = findViewById<ListView>(R.id.songsList)
+                val snackbar: Snackbar = Snackbar.make(songsList , "Song added to queue." , Snackbar.LENGTH_SHORT)
+                snackbar.setAction("Go To Song Queue" , View.OnClickListener {
+                    startActivity(Intent(applicationContext , QueueActivity::class.java))
+                })
+                snackbar.show()
                 val info = item.getMenuInfo() as AdapterView.AdapterContextMenuInfo
-                val index = info.position
-                queuedSongs.add(songsArray[index])
+                queuedSongs.add(songsArray[info.position])
+                true
             }
 
             else -> super.onContextItemSelected(item)
@@ -78,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-val queuedSongs = ArrayList<String>()
+var queuedSongs = ArrayList<String>()
 val songsArray = arrayOf("The Greatest Show", "A Million Dreams", "A Million Dreams - Reprise", "Come Alive", "The Other Side",
         "Never Enough", "This Is Me", "Rewrite The Stars", "Tightrope", "Never Enough - Reprise", "From Now On", "The One",
         "Break Up Every Night", "Bloodstream", "Don't Say", "Something Just Like This", "My Type", "It Won't Kill Ya", "Paris",
