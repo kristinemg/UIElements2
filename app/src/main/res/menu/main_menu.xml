@@ -7,8 +7,13 @@
     <item android:id="@+id/go_to_albums"
         android:title="Albums">
     </item>
+    <item android:id="@+id/add_song"
+        android:title="Add a song">
+    </item>
     <item android:id="@+id/go_to_queues"
         android:title="QUEUE"
         app:showAsAction="ifRoom">
     </item>
+    <item android:id="@+id/add_album"
+        android:title="Add Album"></item>
 </menu>

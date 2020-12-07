@@ -3,6 +3,7 @@ package com.example.uielements2
 import android.annotation.SuppressLint
 import android.app.*
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -112,6 +113,32 @@ class AlbumDetails : AppCompatActivity() {
                 true
             }
             else -> super.onContextItemSelected(item)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.go_to_queues -> {
+                val intent = Intent(this, QueueActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.go_to_songs -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.go_to_albums -> {
+                startActivity(Intent(this, AlbumsActivity::class.java))
+                true
+            }
+            R.id.add_song -> {
+                startActivity(Intent(this, AddSongsActivity::class.java))
+                true
+            }
+            else ->{
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 }

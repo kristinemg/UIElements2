@@ -2,4 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/addSongToQueue"
         android:title="Add To Queue"></item>
+    <item android:id="@+id/add_to_album"
+        android:title="Add To Album">
+        <menu>
+            <item
+                android:id="@+id/lover"
+                android:title="Lover"/>
+            <item
+                android:id="@+id/tcAlbum"
+                android:title="Memories... Do Not Open"/>
+            <item
+                android:id="@+id/tgsmAlbum"
+                android:title="The Greatest Showman"/>
+        </menu>
+    </item>
+    <item android:id="@+id/edit_song"
+        android:title="Edit Song"></item>
+    <item android:id="@+id/delete_song"
+        android:title="Delete Song"></item>
 </menu>
